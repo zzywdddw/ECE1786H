@@ -1,5 +1,5 @@
-### LEC 1: Word Embedding Properties & Meaning Extraction  
-## 2024.9.10 Tuesday
+## LEC 1: Word Embedding Properties & Meaning Extraction  
+### 2024.9.10 Tuesday
 Word 1 - apple - Vapple = {a<sub>0</sub>, a<sub>1</sub>,a<sub>2</sub>,...,a<sub>99</sub>,}  
 Word 2 - banana - Vbanana = {b<sub>0</sub>, b<sub>1</sub>,b<sub>2</sub>,...,b<sub>99</sub>,}
 
@@ -22,5 +22,5 @@ By computing: V<sub>answer</sub> = V<sub>biggest</sub> - V<sub>big</sub> + V<sub
 
 
 
-### LEC 2: How Word Embeddings are Created
-## 2024.9.17 Tuesday
+## LEC 2: How Word Embeddings are Created
+### 2024.9.17 Tuesday
