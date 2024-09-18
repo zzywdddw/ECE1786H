@@ -1,4 +1,4 @@
-### Natural Language Processing  
+### Word Embedding Properties & Meaning Extraction 
 Word 1 - apple - Vapple = {a<sub>0</sub>, a<sub>1</sub>,a<sub>2</sub>,...,a<sub>99</sub>,}  
 Word 2 - banana - Vbanana = {b<sub>0</sub>, b<sub>1</sub>,b<sub>2</sub>,...,b<sub>99</sub>,}
 
