@@ -1,4 +1,5 @@
-### Word Embedding Properties & Meaning Extraction 
+### LEC 1: Word Embedding Properties & Meaning Extraction  
+## 2024.9.10 Tuesday
 Word 1 - apple - Vapple = {a<sub>0</sub>, a<sub>1</sub>,a<sub>2</sub>,...,a<sub>99</sub>,}  
 Word 2 - banana - Vbanana = {b<sub>0</sub>, b<sub>1</sub>,b<sub>2</sub>,...,b<sub>99</sub>,}
 
@@ -9,7 +10,7 @@ One way to measure this closeness is with Euclidean Distance; e.g. the distance 
 this is called the ' Statistical Approcah' to NLP   
 
 Cosine similarity:  
-![image](https://github.com/user-attachments/assets/a29f188c-7aea-48e4-8aa7-1e2b44db0b3f)
+![image](https://github.com/user-attachments/assets/a29f188c-7aea-48e4-8aa7-1e2b44db0b3f)  
 This method considers the direction of the vector, normalizes out magnitude  
 
 Also, beside the surprising relationships:  
@@ -17,4 +18,9 @@ V<sub>queen</sub> - V<sub>king</sub> = V<sub>woman</sub> - V<sub>man</sub>
 V<sub>big</sub> - V<sub>biggest</sub> = V<sub>small</sub> - V<sub>smallest</sub>  
 
 This can be used to answer a question like: "big is to biggest as small is to ....?"  
-By computing: V<sub>answer</sub> = V<sub>biggest</sub> - V<sub>big</sub> + V<sub>small</sub>
+By computing: V<sub>answer</sub> = V<sub>biggest</sub> - V<sub>big</sub> + V<sub>small</sub>  
+
+
+
+### LEC 2: How Word Embeddings are Created
+## 2024.9.17 Tuesday
