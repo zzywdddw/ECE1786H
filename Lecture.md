@@ -29,4 +29,5 @@ By computing: V<sub>answer</sub> = V<sub>biggest</sub> - V<sub>big</sub> + V<sub
 2. The engineer went to the store
 3. The mathematician solved the problem
 4. The engineer solved the problem
+   
 Sentence 1 & 2 imply a similarity between engineer and mathematician. This is an example of what is called the <strong>Distributional Hypothesis</strong>: "Wordsappearing in similar contexts are related"
