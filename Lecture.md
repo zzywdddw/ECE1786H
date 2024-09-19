@@ -30,4 +30,11 @@ By computing: V<sub>answer</sub> = V<sub>biggest</sub> - V<sub>big</sub> + V<sub
 3. The mathematician solved the problem
 4. The engineer solved the problem
    
-Sentence 1 & 2 imply a similarity between engineer and mathematician. This is an example of what is called the <strong>Distributional Hypothesis</strong>: "Wordsappearing in similar contexts are related"
+Sentence 1 & 2 imply a similarity between engineer and mathematician. This is an example of what is called the <strong>Distributional Hypothesis</strong>: "Words appearing in similar contexts are related"  
+<br/><br/>
+How the input and output are represented?  
+-> 1-hot encoding  
+![image](https://github.com/user-attachments/assets/13ccc01d-f352-4586-aa58-2781b3e96b85)  
+<br/><br/>
+let's say 
+
