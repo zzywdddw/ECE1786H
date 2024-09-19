@@ -36,5 +36,13 @@ How the input and output are represented?
 -> 1-hot encoding  
 ![image](https://github.com/user-attachments/assets/13ccc01d-f352-4586-aa58-2781b3e96b85)  
 <br/><br/>
-let's say 
+let's say the vocabulary size |V| = 10  
+let's assume the embedding size dimension = 4  
+that means we want 10 embeddings of size 4 each  
+these are typically stored in a matrix, like  
+![image](https://github.com/user-attachments/assets/ae0f31f3-b156-49f6-a51a-78d0bbbd832d)  
+![image](https://github.com/user-attachments/assets/5d212fb7-1716-476e-bda5-9f631b9db057)  
+
+
+
 
