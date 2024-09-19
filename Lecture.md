@@ -42,7 +42,13 @@ that means we want 10 embeddings of size 4 each
 these are typically stored in a matrix, like  
 ![image](https://github.com/user-attachments/assets/ae0f31f3-b156-49f6-a51a-78d0bbbd832d)  
 ![image](https://github.com/user-attachments/assets/5d212fb7-1716-476e-bda5-9f631b9db057)  
-Word A is the target, i.e. e<sup>i</sup><sub>j</sub>
+Word A is the target, i.e.: <strong>e</strong><sup>i</sup><sub>j</sub>  
+Word B is the context, but also the correct 'label' for the supervised training, represented as 1-hot encoding.  
+An interesting nuance/improvement that isn't obvious: observe that the w<sup>i</sup><sub>j</sub> - the weights in the above neural network model are also word embeddings that are being trained!  
+Why is that? There is one associated with each output, which is again one word in the vocabulary.  
+
+The model is using these to 'match' (convolution-wise) to the input embedding. [This takes a bunch of thinking to understand]  
+Then just replace the wij with the eij
 
 
 
