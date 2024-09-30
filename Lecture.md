@@ -72,5 +72,30 @@ Let’s first spend a few minutes reviewing CNNs
 Recall that pictures are made up of pixels, each pixel is possibly three numbers, the amount of Red, Green and Blue in the pixel. Say a picture is 1000x1000 pixels:
 ![image](https://github.com/user-attachments/assets/2d347533-3bc0-434a-beef-4d81a311546f)  
 
-We would
+We would like to look for  
+1. Single words that indicate subjective/objective
+2. Pairs of words, triplets, 4 words...?
+    - In general to look for K words
+    - In CNN-terminology, we'd say that we want to train kernels of size K X 100
+    - In a similar way that CNN kernels scan across the field of a picture (in computer cision), these a kernel would 'scan' across a sentence
+  
+In the context of classifying the language sentence, a kernel, which might be of size 2x100, would just scan across the sentence's word embeddings once.  
+It would be trained to look for a 2-word pattern of meaning that would contribute to learning the labels: subjective or objective  
+
+Assignment 2 suggests having n1 kernels of size k1 x100 and n2 of size k2x100. Each one randomly initialized, as all weights/kernels are before training  
+
+If you have an input sentence of N words a kernel size of k1=2x100? (Where 100 is the embedding dimension?); assume the stride=1. (what is stride?) What is the size of the output?  
+   - Get N-1 values out; if you have n1 such kernels, then you get n1 x (N-1)
+   - In general for kernel of size k, you get N-k+1 values
+![image](https://github.com/user-attachments/assets/9c66d021-9177-49cd-8627-b6b4c8577ca1)
+
+
+Yoon & Kim (paper referenced in A2) suggest choosing the maximum across all N-k+1 values  
+   - i.e. maxpool
+   - Then feed all of those maximum values, from all the kernels into a multi-layer perceptron (MLP) - also called linear, fully connected layer(s).
+
+Does this make sense?
+   Should look for patterns of 1-6 words that give sense of whether sentence is objective or subjective
+
+
 
