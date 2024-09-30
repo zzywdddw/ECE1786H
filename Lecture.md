@@ -62,5 +62,15 @@ So we want to classify sentences as objective or subjective:
 3. Each of those units will need an embedding - in the case that there is a word that doesnt break down into known units, it will be assigned the 'unknown' token and associated embedding
 We will use GloVe embeddings with dimension = 100 this time.
 So the input to the models is a sentence of words that converted int oa sequence of embeddings.
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/5ac374f9-7d3a-49ef-a5cc-2bb3cc0cd0a3)
+Notice that input sentences would be of different lengths; but some neural nets are set up for fixed-length inputs:
+1. In that case, must “pad” inputs with zeroes (i.e. embeddings that are zero) to make a batch of all equal size length inputs.
+2. CNN
+
+Convolutional Neural Net (CNN)  
+Let’s first spend a few minutes reviewing CNNs  
+Recall that pictures are made up of pixels, each pixel is possibly three numbers, the amount of Red, Green and Blue in the pixel. Say a picture is 1000x1000 pixels:
+![image](https://github.com/user-attachments/assets/2d347533-3bc0-434a-beef-4d81a311546f)  
+
+We would
 
