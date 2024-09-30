@@ -95,7 +95,13 @@ Yoon & Kim (paper referenced in A2) suggest choosing the maximum across all N-k+
    - Then feed all of those maximum values, from all the kernels into a multi-layer perceptron (MLP) - also called linear, fully connected layer(s).
 
 Does this make sense?
-   Should look for patterns of 1-6 words that give sense of whether sentence is objective or subjective
+   Should look for patterns of 1-6 words that give sense of whether sentence is objective or subjective  
+
+
+<strong>Important note </strong>: for Method 2, I also asked you to enable the training of the embeddings themselves. That is, the gradient descent is set to propagate back into the embeddings, so that they learn to do strong>this task</strong> specifically well  
+   - This is the case for the next network - Transformers
+   - Looking ahead: it will be important to understand that the embeddings themselves are essentially network parameters, and so it makes sense to train them all together
+        - the only difference is that you use different parameters depending on what the actual input is
 
 
 
