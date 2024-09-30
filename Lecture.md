@@ -53,3 +53,14 @@ Then just replace the wij with the eij
 
 
 
+## LEC 3: Classification of Language using word embeddings
+#### 2024.9.24 Tuesday  
+For A2, we need to train two types of networks to detect if a sentence is either Objective or Subjective.  
+So we want to classify sentences as objective or subjective:  
+1. each of these sentence is input as regular(ASSCII) text;
+2. the first processing step is called 'tokenization' which often (but not always) break words into smaller units.
+3. Each of those units will need an embedding - in the case that there is a word that doesnt break down into known units, it will be assigned the 'unknown' token and associated embedding
+We will use GloVe embeddings with dimension = 100 this time.
+So the input to the models is a sentence of words that converted int oa sequence of embeddings.
+![Uploading image.png…]()
+
