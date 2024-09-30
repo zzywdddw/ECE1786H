@@ -102,6 +102,14 @@ Does this make sense?
    - This is the case for the next network - Transformers
    - Looking ahead: it will be important to understand that the embeddings themselves are essentially network parameters, and so it makes sense to train them all together
         - the only difference is that you use different parameters depending on what the actual input is
+    
+<strong>Aside</strong>: Recurrent Neural Networks (RNNs) had traditionally been used for Natural Language Processing
+   - An RNN typically takes 1 embedding in at a time, and has a cycle in which the output feeds back into the network, along with the next input:
+    ![image](https://github.com/user-attachments/assets/a915f1c9-c2bd-4762-a250-c25f64b737c1)
+   - RNNs (LSTMs, GRUs) were always rather problematic in that convergence of training was difficult to achieve and unreliable.
+   - Also, to me, the fact that all information was “pinched” through the size of the embedding meant that lots of information was lost
+   - Transformers are closer to CNN’s in that sense, and they have essentially replaced RNNs for NLP
+
 
 
 
