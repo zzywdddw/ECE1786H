@@ -182,7 +182,7 @@ Three important comments/insights:
 4.  Observe the “Language head” which, to repeat, looks just like the output in Assignment 1, Section 3
    A. This is used when training the network to be a language model; key note: when we want to use this network to do classification, we chop off this language head, and put a classifier "head" - an MLP just to do the classification on it, and train it as a classifier, with the parameters of the pre-trained transformer blocks left intact.
 5. The big models are most useful when pre-trained on lots of words - e.g. GPT-2 was trained on billions of words, GPT-4 trillions
-6. he sequence of words input - X0, X1, X2 ... does not contain any information about the order of the words (despite it looking like it does)
+6. The sequence of words input - X0, X1, X2 ... does not contain any information about the order of the words (despite it looking like it does)
    - Does order of words matter to make this prediction?
    - e.g. fox the brown quick vs. the quick brown fox
    - Certainly that ordering must matter! (RNNs don’t have this issue)
