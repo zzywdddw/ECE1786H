@@ -137,8 +137,9 @@ Compute: probability of every word in the vocabulary being the next word accordi
 Assume that the size of the vocabulary |v| = M
 (So we have W0,W1,..,WM-1 as input words)
 Now given a sequence of n words X0,X1,...,Xn-1
-![image](https://github.com/user-attachments/assets/f73fc1ed-74e8-4711-be91-b61202860c1c)
+![image](https://github.com/user-attachments/assets/47dad16e-618d-41f1-87b8-127cbf5d403e)
 P(W0 is Xn) means the probability that word W0 is the next word Xn given the previous sequence
+<br>
 Given that we can do this, we can use these probs to compute the ‘likliehood’ of an entire sequence of words. (Again, the likliehood that the sequence is grammatical/makes sense; or that this sequence would be found in the use of the language)
 - Do by computing P(X0) P(X1) ... P(Xn-1) for an n-word sequence.
 - We can judge a language model by computing this probability on a fixed sequence of words that are known to be "good." Must always use the same sequence of words to compare different models
