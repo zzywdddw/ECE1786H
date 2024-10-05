@@ -131,10 +131,12 @@ One definition of good:
 i.e. that, with that next word, the sentence or partial sentence is likely to found in the use of the language
 <br>
 A little more specifically, the task of a language model is to do this:
+
 Given: One or more words in a sequence
 Compute: probability of every word in the vocabulary being the next word according to 1 & 2 above (but possibly much more 'goodness')
 <br>
 Assume that the size of the vocabulary |v| = M
+
 (So we have W0,W1,..,WM-1 as input words)
 Now given a sequence of n words X0,X1,...,Xn-1
 ![image](https://github.com/user-attachments/assets/47dad16e-618d-41f1-87b8-127cbf5d403e)
