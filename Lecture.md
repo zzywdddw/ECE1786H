@@ -113,3 +113,23 @@ Does this make sense?
 
 
 
+
+## LEC 5: Introduction to Language Models &Transformers
+#### 2024.10.1 Tuesday  
+Transformers are the state-of-the-art method for:  
+1. Classification of language - not MLP, or CNN as in A2, and not recurrent neural networks (RNNs) as found in the pre-2018 literature & discussed
+2. Generation of language: Generation is qualitatively different than classification (in the same way reading and writing are different, perhaps), but neural networks that can do one can be re-purposed to do the other.
+<br>
+Given a prior sequence of words, a Language Model determines the probability that each word in the vocabulary is a good next word.
+e.g.  Partial sentence: “I believe clean running water is important for ...”
+      - High probability words: health; success; everyone;
+      - Low probability words: lights; computers; desks
+
+One definition of good:  
+1. Grammatically correct (when appended to the prior words)
+2. Makes sense (when appended)
+i.e. that, with that next word, the sentence or partial sentence is likely to found in the use of the language
+<br>
+A little more specifically, the task of a language model is to do this:
+Given: One or more words in a sequence
+Compute: probability of every word in the vocabulary being the next word according to 1 & 2 above (but possibly much more 'goodness')
