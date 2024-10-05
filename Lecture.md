@@ -143,7 +143,7 @@ Now given a sequence of n words X0,X1,...,Xn-1
 
 ![image](https://github.com/user-attachments/assets/47dad16e-618d-41f1-87b8-127cbf5d403e)  
 
-P(W0 is Xn) means the probability that word W0 is the next word Xn given the previous sequence  
+P(W0 is Xn) means the probability that word W0 is the next word (denoted as Xn) given the previous sequence
 
 <br>  
 
@@ -151,3 +151,34 @@ Given that we can do this, we can use these probs to compute the ‘likliehood�
 - Do by computing P(X0) P(X1) ... P(Xn-1) for an n-word sequence.
   
 - We can judge a language model by computing this probability on a fixed sequence of words that are known to be "good." Must always use the same sequence of words to compare different models
+- The Perplexity of a model is a function of the above product, but it is both inverted (so that lower numbers are “better”) and normalized by taking the nth root
+- The Perplexity of a model is a function of the above product, but it is both inverted (so that lower numbers are “better”) and normalized by taking the nth root
+<br>
+So, the language model that we want is predicator that looks like:
+![image](https://github.com/user-attachments/assets/51a7754a-6908-4546-85ce-3438a4aad4e4)
+Here is a one view of the picture of a Transformer:
+![image](https://github.com/user-attachments/assets/69ac3267-0020-479a-97d1-7242a5268b81)
+Three important comments/insights:
+1. One reason this is called a Transformer is that, for each Ti block, the number of inputs = number of outputs. So, the information coming in is ‘transformed’ but not increased or decreased in size. There are d x n numbers coming in and d x n going out, where d is the embedding size.
+      - This allows an number (K) of Ti blocks to be easily stacked
+      - Using that, one way that the big transformers are made big is by adding more blocks this way, i.e. just making K bigge
+2. The number of embeddings coming in - n - is called the <strong>context size</strong>, and the input itself is called the <strong>context</strong>; it is very important
+      - Context is very important in all human communication!
+      - Original Vashwani Transformer, n= 512
+           - GPT-2 n = 1024 (1K)
+           - GPT-3 n = 2048 (2K)
+           - GPT-4 n= 8K -> 32K; and now much higher still
+      - While bigger seems to always be better, the attention block inside the transformer is n**2 in the computational complexity; we’ll cover that next, but some of the newer models are finding ways around it
+3.  Observe the “Language head” which, to repeat, looks just like the output in Assignment 1, Section 3
+   A. This is used when training the network to be a language model; key note: when we want to use this network to do classification, we chop off this language head, and put a classifier "head" - an MLP just to do the classification on it, and train it as a classifier, with the parameters of the pre-trained transformer blocks left intact.
+4. The big models are most useful when pre-trained on lots of words - e.g. GPT-2 was trained on billions of words, GPT-4 trillions
+5. he sequence of words input - X0, X1, X2 ... does not contain any information about the order of the words (despite it looking like it does)
+   - Does order of words matter to make this prediction?
+   - e.g. fox the brown quick vs. the quick brown fox
+   - Certainly that ordering must matter! (RNNs don’t have this issue)
+
+Note: he word embeddings themselves are learned as part of the same training process, as discussed above.
+
+
+
+
