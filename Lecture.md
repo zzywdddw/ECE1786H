@@ -133,3 +133,12 @@ i.e. that, with that next word, the sentence or partial sentence is likely to fo
 A little more specifically, the task of a language model is to do this:
 Given: One or more words in a sequence
 Compute: probability of every word in the vocabulary being the next word according to 1 & 2 above (but possibly much more 'goodness')
+<br>
+Assume that the size of the vocabulary |v| = M
+(So we have W0,W1,..,WM-1 as input words)
+Now given a sequence of n words X0,X1,...,Xn-1
+![image](https://github.com/user-attachments/assets/f73fc1ed-74e8-4711-be91-b61202860c1c)
+P(W0 is Xn) means the probability that word W0 is the next word Xn given the previous sequence
+Given that we can do this, we can use these probs to compute the ‘likliehood’ of an entire sequence of words. (Again, the likliehood that the sequence is grammatical/makes sense; or that this sequence would be found in the use of the language)
+- Do by computing P(X0) P(X1) ... P(Xn-1) for an n-word sequence.
+- We can judge a language model by computing this probability on a fixed sequence of words that are known to be "good." Must always use the same sequence of words to compare different models
