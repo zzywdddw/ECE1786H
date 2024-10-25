@@ -114,7 +114,7 @@ Does this make sense?
 
 
 
-## LEC 5: Introduction to Language Models &Transformers
+## LEC 4: Introduction to Language Models &Transformers
 #### 2024.10.1 Tuesday  
 Transformers are the state-of-the-art method for:  
 1. Classification of language - not MLP, or CNN as in A2, and not recurrent neural networks (RNNs) as found in the pre-2018 literature & discussed
@@ -191,4 +191,5 @@ Note: he word embeddings themselves are learned as part of the same training pro
 
 
 
-
+## LEC 5: The Core Mechanisms of Transformers
+#### 2024.10.8 Tuesday  
