@@ -193,3 +193,46 @@ Note: he word embeddings themselves are learned as part of the same training pro
 
 ## LEC 5: The Core Mechanisms of Transformers
 #### 2024.10.8 Tuesday  
+Recall: When training a Transformer from scratch, we train it to be a language model: given a sequence of n words, predict the probability that eacg word in the vocabulary is the next (n+1)st word  
+![image](https://github.com/user-attachments/assets/42322de2-4501-44c7-b300-a67815f1f206)  
+n = number of tokens in the input sequence.  
+d = the size (dimensionality) of the vector representation (embedding) for each token.  
+Even n tokens always go in, may use fewer than n, as in above example  
+Important: in a single inference, the final MLP just takes in d inputs ( not n x d)  
+Which d inputs? The d inputs corresponding to the last input token.  
+<br>  
+<br>  
+Here is the structure of one such Transformer Block:  
+![image](https://github.com/user-attachments/assets/b35a6066-c3ba-4d42-88b9-b395aaa00734)
+  
+Multi-Head Self Attention:  
+- The input word embeddings are transformed from their initial, very general meanings(across all uses/contexts of the words) to something more specific to the context - i.e. the other words in the sequence
+- e.g. the embedding for "bank" would become different in these contexts:
+     1. she sat on the river bank
+     2. He emptied his bank account
+     3. They hsould not bank on the result
+From * in above picture consider how to compute the outputs Yi from the input Xi（ignoring skip connections for now)
+
+e.g.  X0    X1     X2   X3   X4  
+      He    emptied his bank account  
+Self attention asks the question: how similar is each word to all the preceding words and itself?  
+e.g. how similar is X3 (bank) to X0(He)?  
+how similar is X3 (bank) to X1(emptied)?  
+how similar is X3 (bank) to X2(his)?  
+how similar is X3 (bank) to X3(bank)?  
+
+How have we computed a single number that says how similar/realted two words are?  
+=> use the dot product of the word embedding - bigger means more similar  
+Define: score(Xi, Xj) = Xi *(dot) Xj  
+Then, we need to normalize across these scores when use it to compute combination:  
+So define:![image](https://github.com/user-attachments/assets/ed1507b8-403a-43ba-a806-b66264c288d6)  
+The score alpha gives the relative importance of Xj to Xi and we use it to compute a new embedding, Yi that combines different proportions of the Xj, like so:  
+![image](https://github.com/user-attachments/assets/2f1305db-fba4-416d-af17-5d6c30196239)  
+So, we are adding a fraction of the meaning of those other words into the original embedding; the fraction depends on how similar the words are.  
+This is how "bank" gets more "river" into it. The literature refers to these as 'contextual embeddings'  
+Compute the Yi from i=0 up to n-1(if all occupied with embeddings)  
+<br>  
+
+Notice that th
+
+
