@@ -233,6 +233,30 @@ This is how "bank" gets more "river" into it. The literature refers to these as 
 Compute the Yi from i=0 up to n-1(if all occupied with embeddings)  
 <br>  
 
-Notice that th
+Notice that the Xi get used in three ways:  
+1. as the focus Xi in score(Xi, Xj) - we will refer to this as the <strong>"query"</strong>
+2. as the 'search' Xj in score(Xi, Xj) - call this the <strong>"key"</strong>
+3. To compute the Yi in ** above - we call this the <strong>"value"</strong>
+<br>
+In all thress cases we will transform the input Xi by multipying it times ( three didfferent) matrices consisting.
+The matrices will be a size that leaves the size of the ouput the same as the Xi input, hence just transformed.  
+
+![image](https://github.com/user-attachments/assets/d4cb7d0f-b37e-4a04-914f-1a28eee0af49)
+
+#### Therefore, the overall computation becomes:  
+![image](https://github.com/user-attachments/assets/0ffcab7a-fbcf-4f73-b49d-799ad5bb5a5d)  
+<br>  
+<br>  
+Now, return to the specific Transformer block above:  
+![image](https://github.com/user-attachments/assets/fc24cb40-525f-4cf4-9fc3-23366dd4994c)  
+  
+The other parts of the above tramsformer block are more common  
+1. Skip connections(red lines)- are an insurance policy against failed optimization - essentially 'skips' the block if nothing useful happening, but keeps the information passing through the block
+2. Layer Normalization, Dropout and weight decay also used.
+
+Very important: The computation in between the dashed lines are all independent! Yi is a function of some or all of the Xi, but can all be done in parrallel! This speed-up was crucial to the ability to train against huge amounts of training data.  
+Also, the feed-forward MLPs are isolated - i.e. there are n separated MLPs, not one big one, and their parameters are all the same.  
+Think of the transform block as a set independently computed "rows", where there is one "row" per input token/embedding. Each row has the same trained parameters in, it, including the layer norm.
+
 
 
