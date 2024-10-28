@@ -259,4 +259,98 @@ Also, the feed-forward MLPs are isolated - i.e. there are n separated MLPs, not 
 Think of the transform block as a set independently computed "rows", where there is one "row" per input token/embedding. Each row has the same trained parameters in, it, including the layer norm.
 
 
+## LEC 6: Language Generation using Transformers
+#### 2024.10.21 Tuesday  
+Recall: A language model is trained to predict the next word that comes after angiven input sequence of words.  
+So, if you can dothat, then you can predict a whole sequence of output words, one at a time, by taking each predicated word, append it to the input sequence of words and then predicting/generating the next word after that and so on.  
+=> This is called "auto-regressive" generation  
+<br>  
+Here is the what I'd call the "Auto-regressive loop:" (maybe obvious, but is very important):  
+e.g. If the input started as: "The clean river flowed"  
+Call model to infer and generate next words: "into"  
+<br>  
+Then, the next input to the model is "The clean river flowed into"  
+Next word might be "the"  
+<br>  
+Next input would be "The clean river flowed into the"  
+Generate next word, and so on. This is how chatGPT delivers what you ask for.  
+<br>  
+Each word is pretty expensive, in that it is a full inference run just to get one word, of a very large model.  
+![image](https://github.com/user-attachments/assets/05191384-3870-428b-b8aa-8b71ef4865b6)  
+So, for a given input sequence, which single word is selected as the output?  
+The process of selecting the word, based on the output probabilities, is called decoding.  
+<br>  
+Method 1: Greedy Decoding. Just select the highest probability word.  
+- Greedy does not work well in general - it picks obvious words, but these often lead to boring, uninteresting sequences of words; also repetitive
+- Greedy may choose the most likely next word, but does not result in the most likely dequence of generated words
+- Get stuck in a highly local optimum in the space of all possible generated sequences
+<br>
+We can express this issue mathematically as follows: Given an input sequence of embeddings/words/tokens X0 ... Xn-1 we want the generated sequence of output words Y0 ... Yg-1 of g words to be the most likely sequence
+
+i.e. we want P(Y0) x P(Y1) x ... x P(Yg-1) to be maximized  
+
+But, we dont know P(Y1) when selecting Y0 (or Yj, j>i when selecting Yi)  
+
+This is a hard problem because there are M the power of g possible sequences of g output words, which is a big exponential. Here M is the size of the vocabulary If M = 50000, g=20, 50000**20 is huge. Worse, each one of those is a full forward inference of the model!  
+
+![image](https://github.com/user-attachments/assets/784a5b7d-c271-4762-a775-c902129d1e0d)
+
+<br>
+Method 2: Beam Search is a heuristic that prunes the full search tree a lot.  
+
+General Description:  
+- Walk down the tree, keeping the K-most probable sequences  
+- At each level of the tree, consider top V possible next words for each of the K sequences. (Means you need K separate inferences instead of min 1)
+- Compute the full sequence probability of those possible KxV sequences
+      -> keep the K highest
+- repeat until have generated the number of desired tokens(or hit stop token)
+<br>
+Method 3: Sampling (most commonly used)
+
+Given: The set of output probabilities P(W0), P(W1), .., P(Wm-1)  
+
+Select: The next word through a random prcess, in which the probability of selecting word Wi is P(wi)  
+
+![image](https://github.com/user-attachments/assets/d1023084-f517-47e9-abf2-ef33548fa686)  
+
+This random process has a nice side-effect: if you don’t like the output sequence that you get, you can just try again and get a new one.  
+
+Also, this process actually reflects the fact that there are many ways to answer a given question, or to create language.  
+
+However, this randomness is also part of the source of the ‘hallucinations’ that you’ve probably heard of from chatGPT/LLMs. Some bad luck on the first word could just send the answer in the wrong direction!!!!  
+
+<br>  
+
+There are several variations to know about:  
+
+Top-k sampling: rather than select from all M tokens in the vocabulary, only select from the top K most probable words  
+
+Top-p sampling: only select from the top words that all together have the sum of probabilities = p (or closest). 0 <=p <= 1 (most common used)  
+
+   - if set p=1 that mean use all M tokens
+
+   - often p = 0.8
+
+There is one more important adjustment to this process that is important: The probabilities from the network output are adjusted to control whether the generated sequences are more or less creative/diverse.
+It is done with a parameter,t, called the temperature.  
+
+A high T gives more diverse words, done by adjusting probs before sampling.  
+   - T = 1 is normal - the probabilities are unchanged
+   - T > 1 makes less probable words more likely
+   - T < 1 makes more probable words more likely
+   - T = 0 makes decoding greedy
+  
+![image](https://github.com/user-attachments/assets/6a5976e5-a076-43f3-abfa-3db58c0e7fc7)
+ 
+<br>  
+
+Other notes:  
+- Often a conbination of top-p and temperature are the commonly used generation parameters  
+- There is also a repetition penalty - e.g. divide li by 1,3 if the tiken corresponding to li has already been used in this generation
+
+
+
+
+
+
 
