@@ -351,6 +351,18 @@ Other notes:
 
 
 
+## LEC 7: LLM Scaling
+#### 2024.10.22 Tuesday  
+Zero-Shot vs. Few-Shot Prompting  
+- zero-shot prompting — you just tell the model what you want to do with direct instructions  
+- Few-Shot prompting means you give instructions or a question, but also show an example of how to do it
+![image](https://github.com/user-attachments/assets/659f5155-afb8-4649-981f-77a504c5262b)
 
+Above example on the right side shows an example few shot way to evoke a model to show its steps  
+
+There is another more direct way: the zero-shot instruction simply says: show your steos towards an answer, or think step-by-step:  
+
+e.g.  If John has 5 pears, then eats 2, and buys 5 more, then gives 3 to his friend, how many pears does he have? (Add: Let's think step-by-step.); Note that GPT-4 doesn’t seem to need this, nor does GPT-4o; GPT-4o1 goes even farther, and automatically cycles through the output and tries to improve it, in a built-in agentic approach.  
+Apparently, so does 'take a deep breath'
 
 
