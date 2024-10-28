@@ -260,7 +260,7 @@ Think of the transform block as a set independently computed "rows", where there
 
 
 ## LEC 6: Language Generation using Transformers
-#### 2024.10.21 Tuesday  
+#### 2024.10.15 Tuesday  
 Recall: A language model is trained to predict the next word that comes after angiven input sequence of words.  
 So, if you can dothat, then you can predict a whole sequence of output words, one at a time, by taking each predicated word, append it to the input sequence of words and then predicting/generating the next word after that and so on.  
 => This is called "auto-regressive" generation  
